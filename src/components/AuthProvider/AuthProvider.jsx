@@ -1,9 +1,10 @@
 import {
-    FacebookAuthProvider,
-    GoogleAuthProvider,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -63,8 +64,10 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, facebookProvider)
   }
 
-
-
+  const resetPassword = (email) => {
+    setLoading(true)
+    return sendPasswordResetEmail(auth, email )
+  }
 
   const authInfo = {
     users,
@@ -74,7 +77,8 @@ const AuthProvider = ({ children }) => {
     loading,
     updateUserProfile,
     googleSignIn,
-    facebookSignIn
+    facebookSignIn,
+    resetPassword
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
