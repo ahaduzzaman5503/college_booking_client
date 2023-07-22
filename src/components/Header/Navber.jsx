@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Navber = () => {
+  const { users, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    console.log("logout Successfully");
+    logOut();
+  };
+  // const user = true;
   return (
     <div className="container mx-auto">
       <div className="navbar bg-primary text-primary-content">
@@ -29,31 +37,22 @@ const Navber = () => {
               <li>
                 <a>Item 1</a>
               </li>
-              <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </li>
+      
               <li>
                 <a>Item 3</a>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">College Booking</a>
+          <a className="btn btn-ghost normal-case text-xl"><Link to="/home">College Booking</Link></a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
+          <li>
+          <Link to="/home">Home</Link>
+          </li>
             <li>
-              <a>Home</a>
-            </li>
-            <li>
-              <a>Colleges</a>
+              <Link to="colleges">Colleges</Link>
+               
             </li>
             <li>
               <a>Admission</a>
@@ -72,10 +71,12 @@ const Navber = () => {
                 className="input input-bordered w-24 md:w-auto"
               />
             </div>
-            <div className="dropdown dropdown-end">
+            {
+              users? 
+              <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <div className="w-10 rounded-full" title={users.displayName}>
+                  <img src={users.photoURL} />
                 </div>
               </label>
               <ul
@@ -92,10 +93,13 @@ const Navber = () => {
                   <a>Settings</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a onClick={handleLogout}>Logout</a>
                 </li>
               </ul>
             </div>
+              : 
+              <button className="border rounded px-3 "><Link to="/login">Login</Link></button>
+            }
           </div>
         </div>
       </div>
