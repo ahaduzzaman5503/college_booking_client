@@ -57,7 +57,8 @@ const Navber = () => {
               <Link to="admission">Admission</Link>
             </li>
             <li>
-              <a>My Collage</a>
+              <Link to="mycollage">My Collage</Link>
+              <a></a>
             </li>
           </ul>
         </div>
