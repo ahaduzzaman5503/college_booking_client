@@ -39,7 +39,7 @@ const Login = () => {
       });
   };
 
-  const resetPasswordhandle = () => {
+  const resetPasswordhandle = (email) => {
     resetPassword()
       .then(() => {
         alert("Please Check your Email");

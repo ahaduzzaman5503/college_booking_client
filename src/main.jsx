@@ -15,6 +15,7 @@ import Colleges from './components/Colleges/Colleges.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
 import CollegeDetails from './components/CollegeDetails/CollegeDetails.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import CollageCard from './components/HomePages/CollageCard.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,8 @@ const router = createBrowserRouter([
         path: "/home", element: <Home></Home>
       },
       {
-        path: "colleges", element: <Colleges></Colleges>
+        path: "/colleges", element: <Colleges></Colleges>,
+        loader: () => fetch(`http://localhost:5000/allcollages`)
       },
       {
         path: "/register", element: <Register></Register>
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/collagedetails", element: <PrivateRoute> <CollegeDetails></CollegeDetails></PrivateRoute>
-      }
+      },
     ]
   },
 
