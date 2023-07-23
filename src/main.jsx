@@ -24,7 +24,8 @@ const router = createBrowserRouter([
     errorElement: <WrongPath></WrongPath>,
     children: [
       {
-        path: "/home", element: <Home></Home>
+        path: "/home", element: <Home></Home>,
+        loader: () => fetch(`http://localhost:5000/allcollages`)
       },
       {
         path: "/colleges", element: <Colleges></Colleges>,

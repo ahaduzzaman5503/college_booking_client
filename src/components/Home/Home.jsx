@@ -5,9 +5,10 @@ import CollageCard from '../HomePages/CollageCard';
 const Home = () => {
     return (
         <div className='container mx-auto'>
-            this is home page
             <CollageCard></CollageCard>
+            <div className="divider py-5"></div> 
             <GroupGallary></GroupGallary>
+            <div className="divider py-5"></div> 
         </div>
     );
 };
