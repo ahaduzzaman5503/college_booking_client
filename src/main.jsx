@@ -28,6 +28,10 @@ const router = createBrowserRouter([
         loader: () => fetch(`http://localhost:5000/allcollages`)
       },
       {
+        path: "/", element: <Home></Home>,
+        loader: () => fetch(`http://localhost:5000/allcollages`)
+      },
+      {
         path: "/colleges", element: <Colleges></Colleges>,
         loader: () => fetch(`http://localhost:5000/allcollages`)
       },
@@ -38,7 +42,8 @@ const router = createBrowserRouter([
         path: "/login", element: <Login></Login>
       },
       {
-        path: "/collagedetails", element: <PrivateRoute> <CollegeDetails></CollegeDetails></PrivateRoute>
+        path: "/allcollages/:id", element: <PrivateRoute> <CollegeDetails></CollegeDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/allcollages/${params.id}`)
       },
     ]
   },
