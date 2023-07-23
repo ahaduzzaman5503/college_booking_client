@@ -13,6 +13,8 @@ import Login from './components/Login/Login.jsx';
 import WrongPath from './components/WrongPath/WrongPath.jsx';
 import Colleges from './components/Colleges/Colleges.jsx';
 import AuthProvider from './components/AuthProvider/AuthProvider.jsx';
+import CollegeDetails from './components/CollegeDetails/CollegeDetails.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/login", element: <Login></Login>
+      },
+      {
+        path: "/collagedetails", element: <PrivateRoute> <CollegeDetails></CollegeDetails></PrivateRoute>
       }
     ]
   },

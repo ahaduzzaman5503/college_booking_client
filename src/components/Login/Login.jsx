@@ -7,59 +7,60 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
-    const {googleSignIn} = useContext(AuthContext);
-    const {facebookSignIn} = useContext(AuthContext);
-    const {resetPassword} = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
-    let from = location.state?.from?.pathname || "/";
+  const { signIn } = useContext(AuthContext);
+  const { googleSignIn } = useContext(AuthContext);
+  const { facebookSignIn } = useContext(AuthContext);
+  const { resetPassword } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  let from = location.state?.from?.pathname || "/";
 
-    const googleSignInHandle = () => {
-        googleSignIn()
-        .then((result) => {
-            const GoogleUser = result.user;
-            console.log(GoogleUser, "Google sign in succesfully");
-            navigate(from, {replace: true})
-          })
-          .catch((error) => {
-            console.log("error", error.message);
-          });
-    }
+  const googleSignInHandle = () => {
+    googleSignIn()
+      .then((result) => {
+        const GoogleUser = result.user;
+        console.log(GoogleUser, "Google sign in succesfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
 
-    const facebookSignInHandle = () => {
-        facebookSignIn()
-        .then((result) => {
-            const facebookUser = result.user;
-            console.log(facebookUser, "Facebook sign in succesfully");
-            navigate(from, {replace: true})
-          })
-          .catch((error) => {
-            console.log("error", error.message);
-          });
-    }
+  const facebookSignInHandle = () => {
+    facebookSignIn()
+      .then((result) => {
+        const facebookUser = result.user;
+        console.log(facebookUser, "Facebook sign in succesfully");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
 
-    const resetPasswordhandle = () => {
-        resetPassword()
-        .then(() => {
-           alert("Please Check your Email");
-          })
-          .catch((error) => {
-            console.log("error", error.message);
-          });
-    }
+  const resetPasswordhandle = () => {
+    resetPassword()
+      .then(() => {
+        alert("Please Check your Email");
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
 
   const formSchema = Yup.object().shape({
     email: Yup.string()
       .required()
       .required("Email is mendatory")
       .min(3, "Password must be at 3 char long"),
+
     password: Yup.string()
       .required("Password is mendatory")
       .min(3, "Password must be at 3 char long"),
   });
   const formOptions = { resolver: yupResolver(formSchema) };
-
+  
   const {
     register,
     formState: { errors },
@@ -70,7 +71,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser, "login successfully");
-        navigate(from, {replace: true})
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log("error", error.message);
@@ -127,27 +128,30 @@ const Login = () => {
           </button>
         </form>
         <p>
-            {" "}
-            <button className="border rounded px-1 font-bold text-orange-400" 
+          {" "}
+          <button
+            className="border rounded px-1 font-bold text-orange-400"
             onClick={resetPasswordhandle}
-            >
-              {" "}
-              Forgat Password? Reset
-            </button>{" "}
-          </p>
+          >
+            {" "}
+            Forgat Password? Reset
+          </button>{" "}
+        </p>
 
         <div className="flex w-full mt-3">
           <div className="grid h-16 flex-grow  card bg-transparent shadow-lg rounded-box place-items-center">
-            <div className="flex gap-4 justify-center items-center cursor-pointer" 
-            onClick={googleSignInHandle}
+            <div
+              className="flex gap-4 justify-center items-center cursor-pointer"
+              onClick={googleSignInHandle}
             >
               <FaGoogle size={25}></FaGoogle>{" "}
               <span className="font-bold text-xl">Google</span>
             </div>
           </div>
           <div className="divider divider-horizontal">OR</div>
-          <div className="grid h-16 flex-grow card bg-transparent shadow-lg rounded-box place-items-center cursor-pointer"
-          onClick={facebookSignInHandle}
+          <div
+            className="grid h-16 flex-grow card bg-transparent shadow-lg rounded-box place-items-center cursor-pointer"
+            onClick={facebookSignInHandle}
           >
             <div className="flex gap-4 justify-center items-center">
               <FaFacebook size={25}></FaFacebook>{" "}
