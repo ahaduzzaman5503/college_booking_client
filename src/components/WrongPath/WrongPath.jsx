@@ -7,7 +7,7 @@ const WrongPath = () => {
     <div>
       <div>
         <h1 className="font-bold text-4xl  flex justify-center mt-2 text-red-700 pb-10">Page Not Found</h1>
-        <img className="border-2 rounded-3xl" src="https://i.ibb.co/9w75VnK/images.jpg" />
+        <img className="border-2 w-96 h-auto rounded-3xl" src="https://i.ibb.co/P9JBwGL/images.png" />
       </div>
       <div className="flex justify-center mt-2">
         <Link to="/"> 
