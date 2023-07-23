@@ -59,9 +59,6 @@ const Navber = () => {
             <li>
               <a>My Collage</a>
             </li>
-            <li>
-              <Link to="/collagedetails">College Details</Link>
-            </li>
           </ul>
         </div>
         <div className="navbar-end">
