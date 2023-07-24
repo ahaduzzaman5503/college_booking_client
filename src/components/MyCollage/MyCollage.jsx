@@ -10,7 +10,7 @@ const MyCollage = () => {
   // useEffect(() => {
   //   const fetchCollegeData = async () => {
   //     try {
-  //       const response = await fetch("http://localhost:5000/allcollages"); 
+  //       const response = await fetch("https://collage-booking-server-theta.vercel.app/allcollages"); 
   //       const data = await response.json();
   //       setSingleCollage(data);
   //     } catch (error) {

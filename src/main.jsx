@@ -27,23 +27,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home", element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/allcollages`)
+        loader: () => fetch(`https://collage-booking-server-theta.vercel.app/allcollages`)
       },
       {
         path: "/", element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/allcollages`)
+        loader: () => fetch(`https://collage-booking-server-theta.vercel.app/allcollages`)
       },
       {
         path: "/colleges", element: <Colleges></Colleges>,
-        loader: () => fetch(`http://localhost:5000/allcollages`)
+        loader: () => fetch(`https://collage-booking-server-theta.vercel.app/allcollages`)
       },
       {
         path: "/admission", element: <Admission></Admission>,
-        loader: () => fetch(`http://localhost:5000/allcollages`)
+        loader: () => fetch(`https://collage-booking-server-theta.vercel.app/allcollages`)
       },
       {
         path: "/mycollage", element: <MyCollage></MyCollage>,
-        loader: () => fetch(`http://localhost:5000/admissiondata`)
+        loader: () => fetch(`https://collage-booking-server-theta.vercel.app/admissiondata`)
       },
       {
         path: "/register", element: <Register></Register>
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allcollages/:id", element: <PrivateRoute> <CollegeDetails></CollegeDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/allcollages/${params.id}`)
+        loader: ({params}) => fetch(`https://collage-booking-server-theta.vercel.app/allcollages/${params.id}`)
       },
     ]
   },
