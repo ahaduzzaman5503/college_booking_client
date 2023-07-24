@@ -3,23 +3,30 @@ import { Link } from "react-router-dom";
 
 const WrongPath = () => {
   return (
-    <div className="container mx-auto flex items-center justify-center py-20 w-full my-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div>
-      <div>
-        <h1 className="font-bold text-4xl  flex justify-center mt-2 text-red-700 pb-10">Page Not Found</h1>
-        <img className="border-2 w-96 h-auto rounded-3xl" src="https://i.ibb.co/P9JBwGL/images.png" />
+    <div className="container mx-auto">
+       
+    <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div className="text-center">
+          <img className="w-96" src="https://i.ibb.co/zGcw3VD/404-error-page-not-found.jpg" alt="" />
+        <p className="text-base font-semibold text-indigo-600">404</p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-red-500 sm:text-5xl">
+          Page not found
+        </h1>
+        <p className="mt-6 text-base leading-7 text-gray-600">
+          Sorry, we could not find the page you are looking for.
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+          <a
+            href="/"
+            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Go back home
+          </a>
+ 
+        </div>
       </div>
-      <div className="flex justify-center mt-2">
-        <Link to="/"> 
-        <button
-          type="button"
-          className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          Back to Home
-        </button>
-        </Link>
-      </div>
-    </div>
+    </main>
+
   </div>
   );
 };

@@ -38,7 +38,8 @@ const router = createBrowserRouter([
         loader: () => fetch(`http://localhost:5000/allcollages`)
       },
       {
-        path: "/admission", element: <Admission></Admission>
+        path: "/admission", element: <Admission></Admission>,
+        loader: () => fetch(`http://localhost:5000/allcollages`)
       },
       {
         path: "/mycollage", element: <MyCollage></MyCollage>,
